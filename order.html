@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern House : Create Account</title>
+
+    <link rel="stylesheet" href="css/signup.css">
+    
+    <script src="js/token.js"></script>
+    <script src="js/form.js"></script>
+</head>
+<body>
+    
+    <img src="img/loader.gif" class="loader" alt="">
+
+    <div class="alert-box">
+        <img src="img/error.png" class="alert-img" alt="">
+        <p class="alert-msg">Error message</p>
+    </div>
+
+    <div class="container">
+        <form action="https://sheetdb.io/api/v1/tudctyyhnmshe" method = "post" id="sheetdb-form">
+            <img src="img/dark-logo.png" class="logo" alt="">
+            <div>
+                <input type="text" autocomplete="off" id="name" placeholder="Name" name="data[Name]" required>
+                <input type="email" autocomplete="off" id="email" placeholder="Email" name="data[Email]" required>
+                <input type="text" autocomplete="off" id="password" placeholder="Address" name="data[Address]" required>
+                <input type="number" autocomplete="off" id="number" placeholder="Number" name="data[Number]" required>
+                <label style="margin-left : 5.5rem;" for="terms-and-cond">COD available only</label>
+                <br><br>
+                <input type="checkbox" class="checkbox" id="terms-and-cond" required>
+                <label for="terms-and-cond">agree to our <a href="">terms and conditions</a></label>
+                <br>
+                <button class="submit-btn">Order Now</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        var form = document.getElementById('sheetdb-form');
+        form.addEventListener("submit", e => {
+            e.preventDefault();
+            fetch(form.action, {
+                method : "POST",
+                body: new FormData(document.getElementById("sheetdb-form")),
+            }).then(
+                response => response.json()
+            ).then((html) => {
+                // you can put any JS code here
+                open("order-success.html","_self")
+            });
+        });
+    </script>
+</body>
+</html>
